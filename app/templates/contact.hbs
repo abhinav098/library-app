@@ -1,2 +1,14 @@
 <h1>Contact</h1>
+{{#if responseMessage}}
+   <div class="alert alert-success"><span>{{responseMessage}}</span><span class="pull-right" {{action 'removeAlert'}}>x</span></div>
+ {{/if}}
+<br/><br/>
+<form>
+  {{input type="text" value=emailAddress placeholder="Enter email address." class="form-control"}}
+  <br />
+  {{textarea class="form-control" placeholder="Your message (At least 5 characters.)" rows="7" value=message}}
+  <button disabled={{isDisabled}} {{action 'sendMessage'}} class="btn btn-primary btn-lg btn-block">Send Message</button>
+</form>
+
+
 {{outlet}}
